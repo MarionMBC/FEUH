@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Votación FEUH - Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/375ce25381.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="src/styles/style.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand text-light" href="#"><img class="img-logo" src="src/img/logo.png" alt=""></a>
+        <i class="text-success fas fa-solid fa-circle" id="online"></i>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row justify-content-center" id="votacion-admin">
+        <div class="col-12 col-md-6">
+            <div class="card mt-5 border-dark" id="form">
+                <div class="card-header text-center border-dark bg-header">
+                    <h5>Bienvenido (a)</h5>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="question" class="form-label">Ingresa tu pregunta</label>
+                            <input type="text" class="form-control" id="question">
+                        </div>
+                        <div class="d-flex my-2" id="send">
+                            <div class="btn btn-dark flex-fill" id="btnSend"><i class="f-color fas fa-solid fa-paper-plane"></i></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="card mt-5 border-dark" id="vote">
+                <div class="card-header text-center border-dark bg-header">
+                    <h5 id="resQuestion"></h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex my-2" id="like">
+                        <div class="btn btn-dark flex-fill" id="btnLike"><i class="f-color fas fa-solid fa-thumbs-up"></i></div>
+                    </div>
+                    <div class="d-flex my-2" id="unlike">
+                        <div class="btn btn-dark flex-fill" id="btnUnlike"><i class="f-color fas fa-solid fa-thumbs-down"></i></div>
+                    </div>
+                    <div class="d-flex my-2" id="abstener">
+                        <div class="btn btn-dark flex-fill" id="btnAbs">Me abstengo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center" id="voted">
+        <div class="col-12 col-md-6">
+            <div class="card text-center border-dark mt-5">
+                <div class="fw-bold card-header border-dark bg-header">
+                    Ya votaste
+                </div>
+                <div class="card-body border-dark">
+                    <h5 class="card-title">Solo puedes votar una vez</h5>
+                    <div class="btn btn-primary" id="btnCloseVotation">
+                        Cerrar votación
+                    </div>
+                </div>
+                <div class="card-footer text-muted border-dark">
+                    FEUH
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-3" id="results">
+        <div class="col-12 col-md-6">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr class="justify-content-center text-center">
+                        <th scope="row" colspan="2">Resultados</th>
+                    </tr>
+                    </thead>
+
+                    <tbody class="table-group-divider">
+                    <tr>
+                        <th scope="row"><i class="f-color fas fa-solid fa-thumbs-up"></i></th>
+                        <td id="like-counter">0</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><i class="f-color fas fa-solid fa-thumbs-down"></i></th>
+                        <td id="unLike-counter">0</td>
+
+                    </tr>
+                    <tr>
+                        <th scope="row"><i class="f-color fas fa-solid fa-user-slash"></i></th>
+                        <td id="abs-counter">0</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="fixed-bottom mt-5">
+    <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 290" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><style>
+        .path-0{
+            animation:pathAnim-0 4s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        @keyframes pathAnim-0{
+            0%{
+                d: path("M 0,400 C 0,400 0,200 0,200 C 133.2,215.73333333333335 266.4,231.46666666666667 419,224 C 571.6,216.53333333333333 743.5999999999999,185.86666666666667 917,178 C 1090.4,170.13333333333333 1265.2,185.06666666666666 1440,200 C 1440,200 1440,400 1440,400 Z");
+            }
+            25%{
+                d: path("M 0,400 C 0,400 0,200 0,200 C 186.93333333333334,178.13333333333333 373.8666666666667,156.26666666666668 537,166 C 700.1333333333333,175.73333333333332 839.4666666666667,217.06666666666666 986,228 C 1132.5333333333333,238.93333333333334 1286.2666666666667,219.46666666666667 1440,200 C 1440,200 1440,400 1440,400 Z");
+            }
+            50%{
+                d: path("M 0,400 C 0,400 0,200 0,200 C 119.06666666666666,191.33333333333331 238.13333333333333,182.66666666666666 423,197 C 607.8666666666667,211.33333333333334 858.5333333333333,248.66666666666669 1039,253 C 1219.4666666666667,257.3333333333333 1329.7333333333333,228.66666666666666 1440,200 C 1440,200 1440,400 1440,400 Z");
+            }
+            75%{
+                d: path("M 0,400 C 0,400 0,200 0,200 C 191.2,240.26666666666665 382.4,280.5333333333333 522,263 C 661.6,245.46666666666667 749.5999999999999,170.13333333333333 894,150 C 1038.4,129.86666666666667 1239.2,164.93333333333334 1440,200 C 1440,200 1440,400 1440,400 Z");
+            }
+            100%{
+                d: path("M 0,400 C 0,400 0,200 0,200 C 133.2,215.73333333333335 266.4,231.46666666666667 419,224 C 571.6,216.53333333333333 743.5999999999999,185.86666666666667 917,178 C 1090.4,170.13333333333333 1265.2,185.06666666666666 1440,200 C 1440,200 1440,400 1440,400 Z");
+            }
+        }</style><defs><linearGradient id="gradient" x1="0%" y1="50%" x2="100%" y2="50%"><stop offset="5%" stop-color="#002bdc"></stop><stop offset="95%" stop-color="#32ded4"></stop></linearGradient></defs><path d="M 0,400 C 0,400 0,200 0,200 C 133.2,215.73333333333335 266.4,231.46666666666667 419,224 C 571.6,216.53333333333333 743.5999999999999,185.86666666666667 917,178 C 1090.4,170.13333333333333 1265.2,185.06666666666666 1440,200 C 1440,200 1440,400 1440,400 Z" stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="1" class="transition-all duration-300 ease-in-out delay-150 path-0"></path></svg>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="src/js/interface.js"></script>
+<script src="src/js/sockets.js"></script>
+<script src="src/js/main.js"></script>
+</body>
+</html>
