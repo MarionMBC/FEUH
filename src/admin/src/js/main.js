@@ -3,12 +3,18 @@ const btnLike = document.getElementById('like');
 const btnUnlike = document.getElementById('unlike');
 const btnAbs = document.getElementById('abstener');
 
+
 setLocalStorage();
+
+
 
 
 var like = 0;
 var unlike = 0;
 var abs = 0;
+
+
+sendName()
 
 hideVote();
 hideVoted();

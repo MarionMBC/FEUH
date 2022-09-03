@@ -14,6 +14,7 @@ const btnAbs = document.getElementById('abstener');
   })
 }*/
 
+
 setLocalStorage();
 
 /*var shVotacion = document.getElementById('votacion');

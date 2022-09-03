@@ -11,19 +11,20 @@ const httpServer = http.createServer(app); //Lo instanciamos y no le pasamos el 
 const io = new WebSocketServer(httpServer); //Se le pasa al webSocket para crear una conexión io.
 
 //Variables
-var like = 0;
-var unLike = 0;
-var abs = 0;
-var auth = []
+var like = 0; //Contador de likes
+var unLike = 0; //Unlikes
+var abs = 0; //Votos abstenidos
+var auth = [] //Sesiones autenticadas
 
 //Método static para dar la carpeta public al cliente
 app.use (express.static(__dirname + '/public'));
-app.use ('/abc', express.static(__dirname + '/admin'));
+app.use ('/admin', express.static(__dirname + '/admin'));
 
 //Variables
-var online = 0;
+var online = 0; //Contador de sesiones activas
 
 //funciones
+/*Reinicia las votaciones*/
 function restart () {
     auth = [];
     like = 0;
@@ -32,6 +33,7 @@ function restart () {
     online = 0;
 }
 
+/*Envía los datos*/
 function sendData () {
     io.emit('server:like', like);
     io.emit('server:unLike', unLike);
@@ -48,7 +50,7 @@ io.on('connection', (socket) => {
         io.emit('online', online)
         auth.push(id);
         console.log (auth)
-    })
+    });
 
     //Muestra la cantidad de miembros activos
     io.emit('online', online)
@@ -107,7 +109,6 @@ io.on('connection', (socket) => {
         like = 0;
         unLike = 0;
         abs =0;*/
-        online = 0;
         restart();
         sendData();
         io.emit('online', online);
@@ -129,5 +130,5 @@ io.on('connection', (socket) => {
 
 //Ya no se servirá el contenido con app porque ese es solo para express.
 /*app.listen (8000, ()=> console.log (`Server is runnning on port`, 8000))*/
-httpServer.listen(8000, () => console.log("Server is running on port:", 8000))
+httpServer.listen(9000, () => console.log("Server is running on port:", 9000))
 

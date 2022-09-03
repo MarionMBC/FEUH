@@ -16,3 +16,4 @@ function showVotacion () {
 function hideVotacion () {
     shVotacion.style.display = 'none';
 }
+
