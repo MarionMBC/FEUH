@@ -3,19 +3,8 @@ const btnLike = document.getElementById('like');
 const btnUnlike = document.getElementById('unlike');
 const btnAbs = document.getElementById('abstener');
 
-
-
-//LocalStorage
-/*if (!localStorage.getItem('id')) {
-  socket.emit ('client:reqLocalS')
-  socket.on ('server:resLocalS', (ls) => {
-    localStorage.setItem('id', ls)
-    console.log(ls)
-  })
-}*/
-
-
 setLocalStorage();
+sendName()
 
 /*var shVotacion = document.getElementById('votacion');
 var shDisabled = document.getElementById('disabled');*/
